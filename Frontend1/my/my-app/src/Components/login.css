@@ -1,0 +1,207 @@
+/* General container styling */
+.flex {
+    display: flex;
+}
+
+.min-h-full {
+    min-height: 100vh;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.lg\\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* Form container */
+.sm\\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sm\\:w-full {
+    width: 100%;
+}
+
+.sm\\:max-w-sm {
+    max-width: 24rem;
+}
+
+/* Image styling */
+img {
+    display: block;
+    height: auto;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Heading styling */
+.text-center {
+    text-align: center;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.text-gray-900 {
+    color: #1f2937;
+}
+
+/* Form elements */
+.space-y-6 > * + * {
+    margin-top: 1.5rem;
+}
+
+.block {
+    display: block;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.rounded-md {
+    border-radius: 0.375rem;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.py-1{
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+}
+
+.text-base {
+    font-size: 1rem;
+}
+
+.outline {
+    outline: 1px solid transparent;
+}
+
+.outline-1 {
+    outline-width: 1px;
+}
+
+.outline-gray-300 {
+    outline-color: #d1d5db;
+}
+
+.placeholder\\:text-gray-400::placeholder {
+    color: #9ca3af;
+}
+
+.focus\\:outline-2:focus {
+    outline-width: 2px;
+}
+
+.focus\\:outline-indigo-600:focus {
+    outline-color: #4f46e5;
+}
+
+.sm\\:text-sm {
+    font-size: 0.875rem;
+}
+
+/* Button */
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.bg-indigo-600 {
+    background-color: #4f46e5;
+}
+
+.text-white {
+    color: white;
+}
+
+.hover\\:bg-indigo-500:hover {
+    background-color: #6366f1;
+}
+
+/* Password visibility toggle */
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.inset-y-0 {
+    top: 0;
+    bottom: 0;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.pr-3 {
+    padding-right: 0.75rem;
+}
+
+.text-gray-500 {
+    color: #6b7280;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.hover\\:text-indigo-500:hover {
+    color: #6366f1;
+}
+
+/* Footer text */
+.mt-10 {
+    margin-top: 2.5rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-gray-500 {
+    color: #6b7280;
+}
