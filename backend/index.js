@@ -1,6 +1,8 @@
 const express = require('express');
 const app  = express();
 const { connectDB } = require('./src/DataBase/db');
+const { use } = require('./src/Controllers/user');
+const {userRouter}= require('./src/Controllers/user');
 
 require('dotenv').config({
     path:'./src/config/.env'
@@ -11,6 +13,8 @@ const url = process.env.db_url
 app.get('/',(req,res)=>{
     res.send("Hello World")
 })
+
+app.use('/register',userRouter);
 
 app.listen(PORT, async()=>{
 
