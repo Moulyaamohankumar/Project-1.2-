@@ -1,26 +1,24 @@
 const express = require('express');
-const app  = express();
-const { connectDB } = require('./src/DataBase/db');
+const { connectDB } = require('./src/Database/db');
+const app = express();
 
 require('dotenv').config({
-    path:'./src/config/.env'
+    path: './src/config/.env'
 });
-const PORT = process.env.PORT ||8080
-const url = process.env.db_url
+const port = process.env.PORT || 8080;
+const url = process.env.db_url;
 
-app.get('/',(req,res)=>{
-    res.send("Hello World")
-})
+app.listen(port, async() => {
 
-app.listen(PORT, async()=>{
+  try{
+    await connectDB(url);
+    console.log(`Server is running on port ${port}`);
+  }
+  catch(error){
+    console.error(error);
+  }
+});
 
-    try{
-        await connectDB(url);
-        console.log(`Server is running at port${PORT}`)
-    }
-    catch(err){ 
-        console.log(err);
-    }
-
-   
-})
+app.get('/', (req, res) => {    
+    res.send('Hello World!');
+});
