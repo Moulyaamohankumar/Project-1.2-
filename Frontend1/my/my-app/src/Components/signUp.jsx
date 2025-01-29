@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 // import  {Avatar}  from 'react-avatar'
@@ -15,7 +15,7 @@ export const Signup = () => {
     const [visible, setVisible] = useState(false)
 
     const handleFileSubmit = (e) => {
-        const file = e.target.files[0]
+        const file = e.target.files
 
         if(file) {
             const filepath = URL.createObjectURL(file)
