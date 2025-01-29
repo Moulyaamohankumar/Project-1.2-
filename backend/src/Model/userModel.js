@@ -12,7 +12,7 @@ const userSchema = new Schema({
         type: String,
         required: [true, "Please enter your password"],
         minLength: [4, "Password should be greater than 4 characters"],
-        select: false,
+        // select: false,
       },
       phoneNumber:{
         type: Number,
