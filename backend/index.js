@@ -18,6 +18,8 @@ app.listen(port, async() => {
     console.error(error);
   }
 });
+app.use('/auth',userrouter)
+app.use('/product',productRouter)
 
 app.get('/', (req, res) => {    
     res.send('Hello World!');
