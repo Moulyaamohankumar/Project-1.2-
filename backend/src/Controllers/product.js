@@ -2,6 +2,29 @@ const {Router} = require('express');
 const { default: productModel } = require('../Model/productModel');
 const productRouter = Router();
 
+productRouter.get("/get-product",async(req,res)=>{
+    try{
+        const productFind = await productModel.find();
+        const products =productFind.map((product)=>{
+            return{
+                name:product.name,
+                description:product.description,
+                category:product.category,
+                tags:product.tags,
+                price:product.price,
+                stock:product.stock,
+                email:product.email,
+                images:product.images,
+            };
+        });
+        res.status(200).json({products:products});
+    }
+    catch(error){
+        console.log(err);
+    }
+});
+
+
 productRouter.get('/',(req,res)=>{
     res.send('Product Route');
 })
