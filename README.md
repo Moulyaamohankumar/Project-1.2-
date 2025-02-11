@@ -1,4 +1,24 @@
-1. What’s a Sign-Up Page?
+# Ecommerce-website
+# S67_Ecommerce_Website
+
+Description 
+
+What is MERN 
+MongoDB : It is used to store all over data of out project/App.
+
+Express : Express provides easy-to-use methods and middleware to handle HTTP requests and responses. 
+And also help in using in routing link GET, PUT, POST, DELETE.
+
+React.js : React.js will be responsible for building the frontend, the part users interact with.Together, these technologies allow us to build a full-stack application where the frontend and backend communicate seamlessly.
+
+Nodejs : This will be combined with the express and power the backend and helps in handling HTTPs request.
+
+Project Overview.
+
+In this project we will do an Ecommerce website. Where Frontend will be made with React.js. For backend we use Express and nodejs. For database we use MongoDb.
+
+We make a Home page where we have product and search bar, filter option and cart option. And in the cart page we have products and total price of the products. In the Payment page we have the payment summary and paymnet things, 
+and the user will have the invoice and tax bill. 1. What’s a Sign-Up Page?
 
 The Sign-Up page is where users enter their details to create an account. This page typically includes fields like:
 
@@ -119,3 +139,58 @@ In the next milestone, we’ll continue building out advanced features for your 
 Connecting the frontend with the backend.
 
 Managing user sessions and authentication
+Milestone 6: Backend for Signup Page
+
+Learning Goals 🎯
+
+By the end of this milestone, you will:
+
+Understand how to encrypt passwords before saving them.
+
+Know how to store complete user data securely in the database.
+
+Why Encrypt Passwords?
+
+Protect User Data: Keeps passwords safe if hackers access the database.
+
+Privacy: Ensures user passwords aren’t visible to anyone.
+
+Compliance: Follows security laws like GDPR and PCI-DSS.
+
+Stops Password Theft: Encrypted passwords can’t be easily stolen or guessed.
+
+Steps for Milestone 6 📝
+
+Encrypt the Password:
+
+Use bcrypt to hash the user's password during signup.
+
+Save the hashed password in the database instead of plain text.
+
+Store Complete User Data:
+
+Save all the user's data (e.g., name, email, etc.) in the database while ensuring that the password remains encrypted.
+
+Accomplishments 🎉
+
+Implemented backend functionality for user signup.
+
+Used bcrypt to hash and securely store passwords.
+
+Successfully saved user data in the database.
+
+Ensured that passwords are never stored in plain text.
+
+Successfully completed and submitted the assignment. ✅
+
+Submission Guidelines 📥
+
+Once you’ve completed these steps:
+
+Push your code to the same GitHub repository used for previous milestones.
+
+Ensure your repository is publicly accessible.
+
+Update your README file with a new section summarizing your progress for Milestone 6.
+
+Share the repository link in the assignment submission area.
