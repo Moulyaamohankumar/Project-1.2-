@@ -1,196 +1,148 @@
-# Ecommerce-website
-# S67_Ecommerce_Website
+# E-Commerce Application: Backend Web Development Project
 
-Description 
+### **Milestone 1: Project Overview**
 
-What is MERN 
-MongoDB : It is used to store all over data of out project/App.
+**Brief Overview:**
+This project involves developing a fully functional e-commerce platform utilizing the MERN stack — MongoDB, Express, React, and Node.js. The application will be built using React's Create React App (CRA) for the front-end, MongoDB as the database solution, and Node.js with Express to handle the back-end server operations.
 
-Express : Express provides easy-to-use methods and middleware to handle HTTP requests and responses. 
-And also help in using in routing link GET, PUT, POST, DELETE.
+The project will be split into two main areas: **Frontend** (client-side) and **Backend** (server-side) development.
 
-React.js : React.js will be responsible for building the frontend, the part users interact with.Together, these technologies allow us to build a full-stack application where the frontend and backend communicate seamlessly.
+- **Frontend:** We will be creating various pages for user interaction, including:
+  - **Login Page**
+  - **Sign Up Page**
+  - **Forgot Password Page**
+  - **Home Page**
+  - **Product Display Page**
+  - **Cart Page**
+  - **Address Page**
+  - **Payment Page**
+  - **Order Confirmation Page**
+  - **Order History Page**
+  - **Help Page**
+  - **Error Page**
+  - Detailed Product Pages
 
-Nodejs : This will be combined with the express and power the backend and helps in handling HTTPs request.
+- **Backend:** The server will interact with MongoDB, a NoSQL database, to handle data management. We will be using the Mongoose library to interact with the database and define schemas for data consistency. To manage communication between the front-end and the back-end, we will implement APIs that allow for CRUD operations (Create, Read, Update, Delete) using HTTP methods like `POST`, `GET`, `PUT`, `PATCH`, and `DELETE`.
 
-Project Overview.
+We’ll integrate **bcrypt** for password hashing to ensure user data security, and the entire project will follow best practices for backend structure, focusing on scalability and maintainability.
 
-In this project we will do an Ecommerce website. Where Frontend will be made with React.js. For backend we use Express and nodejs. For database we use MongoDb.
+---
 
-We make a Home page where we have product and search bar, filter option and cart option. And in the cart page we have products and total price of the products. In the Payment page we have the payment summary and paymnet things, 
-and the user will have the invoice and tax bill. 1. What’s a Sign-Up Page?
+### **Milestone 2: Frontend Development (Login Page)**
 
-The Sign-Up page is where users enter their details to create an account. This page typically includes fields like:
+For this milestone, we successfully created the **Login Page** using React's Create React App (CRA). To improve the user interface and design, we will be updating the layout with **Tailwind CSS** for styling and incorporate **React-Icons** for intuitive icons. Tailwind CSS will help us streamline the design process with its utility-first classes, making the UI responsive and visually appealing.
 
-Name
+The Login Page will include fields for the user's email and password, and will handle form validation, state management, and error handling for incorrect login attempts. React Icons will be utilized for visual appeal and ease of use, enhancing the overall experience.
 
-Email
+---
 
-Password
+### **Milestone 3: Backend Structure and Initial Setup**
 
-This page allows users to provide their information, which will be sent to the server for processing. We’ll create a simple yet effective sign-up form that looks clean and is user-friendly.
+At this stage, we’ve laid the foundation for the backend by setting up the directory structure for the project. The backend is structured as follows:
 
-2. What is Form Validation?
+- **`src/` Directory:** Contains all source code files for the server.
+  - **`config/`**: Stores environment configuration files like `.env` for MongoDB URL and the server port.
+  - **`controllers/`**: Defines functions to handle incoming requests for various routes.
+  - **`database/`**: Contains the MongoDB connection logic in `db.js`.
+  - **`middleware/`**: Houses custom middleware functions such as `error.js` for centralized error handling.
+  - **`model/`**: Contains Mongoose models for the database schema.
+  - **`routers/`**: Defines route handlers for different API endpoints.
+  - **`utils/`**: Stores utility functions, including the `ErrorHandler.js` to manage application-level errors.
 
-Form Validation ensures that the information users provide is correct and in the right format.
+In the **`index.js`** file, we imported Express, initialized the app, and set up basic routing and server listening. We can now handle HTTP requests through `app.get` and set the server to listen for incoming requests on the specified port.
 
-For instance:
+### **Milestone 4: Backend Structure and Initial Setup**
+creating user model, user controller and Multer support
+Milestone 6
+: Backend Structure and Initial Setup** Password Encryption and User Data Storage
 
-Checking if the email is in the correct format.
+Password Hashing:
 
-Ensuring the password meets security criteria (e.g., minimum length).
+Implement bcrypt to hash the user's password during the signup process. Ensure that the hashed password is stored in the database instead of the plaintext version to enhance security. User Data Storage:
 
-Form validation helps prevent errors and ensures that the backend receives clean and valid data.
+Save all relevant user information (e.g., name, email, etc.) in the database. Maintain the integrity and confidentiality of the password by ensuring it remains encrypted throughout the process.
+Milestone 7
+Create Login Endpoint:
 
-3. Implementation Details 🚀
+Accept user credentials (email/username and password). Retrieve the corresponding user from the database. Validate Password:
 
-Technologies Used:
+Use bcrypt to hash the entered password. Compare it with the stored hashed password for authentication.
 
-React.js: To create a dynamic and responsive UI.
+Milestone 8
+In this milestone we created two components called Home.jsx and productcard.jsx. product card.jsx is the template used in home.jsx to map out all the products and display them. We also added routes to the home.jsx to display it when the page loads. Based on the number of products the products are mapped and displayed.
 
-Tailwind CSS: For styling the components efficiently.
 
-React Hook Form: To manage form state and validation.
 
-Yup: For schema-based validation.
+## Milestone 9: Create Product Form
 
-Features Implemented:
-
-User-friendly sign-up form with Name, Email, and Password fields.
-
-Form validation using Yup and React Hook Form:
-
-Email validation ensures the input follows a proper email format.
-
-Password validation requires a minimum length and security constraints.
-
-Responsive design using Tailwind CSS to support different screen sizes.
-
-Smooth user experience with clear error messages and input validation.
-
-Code Structure:
-
-Signup.js - Contains the sign-up form component.
-
-styles.css - Additional custom styles (if needed).
-
-validation.js - Defines validation schemas using Yup.
-
-Steps for Milestone 5 📝
-
-In this milestone, you will work on the frontend while your mentor will guide you through:
-
-Building the Sign-Up Page with React.js and Tailwind CSS.
-
-Adding form validation using React Hook Form and Yup.
-
-Ensuring the UI is fully responsive and user-friendly.
-
-If you missed the mentor-led session, don’t worry! You can always go through the content and reach out to your mentor for help on any coding aspects.
-
-Milestone 5: Creating the Signup Page
-
-Accomplishments 🎉
-
-Designed and implemented a Sign-Up Page using React.js and Tailwind CSS.
-
-Integrated form validation using React Hook Form and Yup.
-
-Ensured responsiveness for different screen sizes.
-
-Displayed real-time error messages for invalid inputs.
-
-Updated the README file with details of the milestone.
-
-Successfully completed and submitted the assignment. ✅
-
-Submission Guidelines 📥
-
-Once you’ve completed these steps:
-
-Push your code to the same GitHub repository used for previous milestones.
-
-Ensure your repository is publicly accessible.
-
-Update your README file with a new section summarizing your progress for Milestone 5.
-
-Share the repository link in the assignment submission area.
-
-Task Instructions
-
-Use the same GitHub repository created during Milestone 1: Ecommerce-Follow-Along.
-
-If you haven’t done so, ensure it is initialized with a README file.
-
-Complete the code for Milestone 5 (Frontend - Signup page).
-
-Update the README file in the root of the repository.
-
-Include a section titled Milestone 5: Creating the Signup Page that summarizes what was achieved in this milestone.
-
-Ensure all changes are committed and pushed to your GitHub repository.
-
-Share the repository link in the space provided below.
-
-Next Steps 🚀
-
-In the next milestone, we’ll continue building out advanced features for your app, including:
-
-Connecting the frontend with the backend.
-
-Managing user sessions and authentication
-Milestone 6: Backend for Signup Page
-
-Learning Goals 🎯
-
+### Learning Goals 🎯
 By the end of this milestone, you will:
 
-Understand how to encrypt passwords before saving them.
+- Learn how to create a form that collects all the details of a product.
+- Understand how to take multiple images as input and handle them properly.
 
-Know how to store complete user data securely in the database.
+### Why Create a Product Form?
 
-Why Encrypt Passwords?
+In this milestone, we will create a form that allows users to input all necessary product details. These details will be stored in a database and displayed on the product homepage created in the previous milestone.
 
-Protect User Data: Keeps passwords safe if hackers access the database.
+### Steps for Milestone 9 📝
 
-Privacy: Ensures user passwords aren’t visible to anyone.
+1. **Create the Product Form**:
+   - Design and implement a form that collects all product-related information.
+   - Ensure the form is user-friendly and validates the input fields.
 
-Compliance: Follows security laws like GDPR and PCI-DSS.
+2. **Handle Multiple Product Images**:
+   - Enable the form to accept multiple images as input.
+   - Implement proper handling and storage of these images.
 
-Stops Password Theft: Encrypted passwords can’t be easily stolen or guessed.
+This milestone is a crucial step in building a functional product listing feature. Good luck! 🚀
 
-Steps for Milestone 6 📝
+---
 
-Encrypt the Password:
+## Milestone 10: Product Schema & API Endpoint
 
-Use bcrypt to hash the user's password during signup.
+### Learning Goals 🎯
+By the end of this milestone, you will:
 
-Save the hashed password in the database instead of plain text.
+- Learn how to write a product schema.
+- Learn how to create an endpoint to validate and store product details in MongoDB.
 
-Store Complete User Data:
 
-Save all the user's data (e.g., name, email, etc.) in the database while ensuring that the password remains encrypted.
+### Product Schema
 
-Accomplishments 🎉
+- Define the structure of product data (e.g., name, description, price, image URL) using Mongoose.
+- Ensure each field has proper validation (e.g., required fields, correct data types).
 
-Implemented backend functionality for user signup.
+### Endpoint Creation
 
-Used bcrypt to hash and securely store passwords.
+- Build a **POST** endpoint to receive product data.
+- Validate and save the product details to MongoDB.
 
-Successfully saved user data in the database.
+### Why Validation?
 
-Ensured that passwords are never stored in plain text.
+Validation ensures that only valid data is saved in the database, maintaining data integrity and preventing errors.
 
-Successfully completed and submitted the assignment. ✅
+This milestone is essential for backend development and securing data consistency in your project. Keep going! 🚀
 
-Submission Guidelines 📥
+# Milestone 11: Fetch & Display Product Data
 
-Once you’ve completed these steps:
+## Learning Goals 🎯
+By the end of this milestone, you will:
 
-Push your code to the same GitHub repository used for previous milestones.
+- Learn how to write an endpoint that extracts and sends data from MongoDB.
+- Understand how to receive data on the frontend.
+- Dynamically display data using the product card created earlier.
 
-Ensure your repository is publicly accessible.
+## Steps for Milestone 11 📝
 
-Update your README file with a new section summarizing your progress for Milestone 6.
+1. **Write an API Endpoint**:
+   - Create an endpoint that retrieves all product data from MongoDB and sends it to the frontend.
 
-Share the repository link in the assignment submission area.
+2. **Fetch Data in Frontend**:
+   - Write a function in the frontend to fetch all product data from the backend.
+
+3. **Display Data Dynamically**:
+   - Pass the fetched data to the product card component to display it dynamically.
+
+This milestone is crucial in connecting the backend and frontend, making your application fully functional. Keep going!
+ 
