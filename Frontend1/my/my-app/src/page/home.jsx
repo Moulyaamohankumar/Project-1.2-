@@ -25,7 +25,7 @@ import { Productcard } from '../Components/Productcard'
 export const Home = () => {
 
   const [products, setProducts] = useState([]);
-  const [Loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true); 
   const [Error, setError] = useState(null);
    
   useEffect(() => {

@@ -1,8 +1,8 @@
-class errorHnadler extends Error {
-    constructor(statusCode,message){
+class Errorhandler extends Error{
+    constructor(statusCode, message){
         super(message);
-        this.statusCode=statusCode;
+        this.statusCode = statusCode;
     }
 }
 
-module.exports={errorHnadler}
+module.exports = Errorhandler;

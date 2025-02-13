@@ -5,6 +5,7 @@ import { useState , useEffect } from 'react';
 export const Productcard = ({image,name,price,description}) => {
 
   const {Currentindex,setCurrentindex} = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval= setInterval(() => {
@@ -25,7 +26,8 @@ export const Productcard = ({image,name,price,description}) => {
       </div>
       <div className='w-full'>
   <h1 className='text-lg font-bold my-2'>${price}</h1>
-    <button className='w-full text-white px-4 py-2 rounded-md bg-neutral-900'>Buy Now</button>
+    <button className='w-full text-white px-4 py-2 rounded-md bg-neutral-900' onClick={HandleDelete}>Delete</button>
+    <button className='w-full text-white px-4 py-2 rounded-md bg-neutral-900'onClick={()=>HandleEdit(id)}>Edit</button>
     </div>
     </div>
   )
