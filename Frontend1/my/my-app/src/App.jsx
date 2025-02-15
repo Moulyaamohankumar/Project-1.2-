@@ -1,20 +1,22 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Login } from './Components/Login';
-import { Signup } from  './Components/signUp';
+import { Signup } from './Components/Signup';
 import { Home } from './page/home';
-import { ProductForm } from './Components/productForm';
-import { Productcard } from './Components/productCard';
+import { ProductForm } from './Components/ProductForm';
+// import { Productcard } from './Components/productCard';
+import Navbar from '../src/Components/Navabar';
 
 function App() {
   return (
     <>
+    <Navbar/>
       <Routes>
         <Route path="/Login" element={<Login />} ></Route>
         <Route path="/Signup" element={<Signup />} ></Route>
         <Route path="/home" element={<Home />} ></Route>
         <Route path='/productform' element={<ProductForm/>}/>
-        <Route path ='/productCard' element={<Productcard/>}/>
+        {/* <Route path ='/productCard' element={<Productcard/>}/> */}
       </Routes>
     </>
   );
