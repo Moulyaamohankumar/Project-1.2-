@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-export const Productcard = ({ image, name, price, description, id }) => {
+export const ProductCardSeller = ({ image, name, price, description, id }) => { // Corrected component name
   const [currentIndex, setCurrentIndex] = useState(0); // Corrected useState usage
   const navigate = useNavigate();
 
