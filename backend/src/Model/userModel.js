@@ -14,6 +14,31 @@ const userSchema = new Schema({
         required: [true, "Please enter your password"],
         minLength: [4, "Password should be greater than 4 characters"],
       },
+      cart:[
+        {
+          productid:{
+            type:String,
+            required:true,
+            unique:true;
+          },
+          email:{
+            type:String,
+            required:true,
+            unique:true
+          },
+          productname:{
+          type:String,
+          unique:true,
+          required:true
+          },
+          quantity:{
+            type:String,
+            required:true, 
+            min:1
+
+          }
+        }
+      ]
     //   phoneNumber:{
     //     type: Number,
     //   },
