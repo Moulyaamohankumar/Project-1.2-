@@ -2,6 +2,7 @@ const { Router } = require('express');
 const { default: productModel } = require('../Model/productModel');
 const { default: mongoose } = require('mongoose');
 const path = require('path');
+const Productmodel = require('../Model/productModel');
 const productRouter = Router();
 
 productRouter.get("/get-product", async (req, res) => {
@@ -50,18 +51,35 @@ productRouter.post('/cart', async (req, res) => {
         if(!findproduct){
             return res.status(400).json({ message: 'Product is not valid' })
         }
-        const cardproductid = await userModel.cart.findIndex((i)=>{
-            return i.productid;
+        const cardproductid = await findemail.cart.findIndex((i)=>{
+            return i.productid===productid;
         })
+        if(cartproductid>-1){
+            findemail.cart[cartproductid].quantity+=quantity
+        }else{
+           findemail.cart.push({productid,productname,quantity}) 
+        }
 
-
-        // ...additional logic...
+          const user  = await userModel.findOne({email:email}).populate({
+            path:cart.productid,
+            model:productModel
+          })
+       
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Internal Server Error" });
     }
 });
-
+productRouter.get('/getCart',async(req,res)=>{
+    const {email} = req.body
+    try{
+    if(!email){
+        return res.status(400).json({message:"user does not exist"})
+    }
+}catch(err){
+    console.log("error in cart for get ")
+}
+})
 productRouter.post('/', productUpload.array('files'), async (req, res) => {
     try {
         const { name, description, price, stock, email, category, tag } = req.body;
