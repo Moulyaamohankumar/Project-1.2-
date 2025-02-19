@@ -50,12 +50,17 @@ productRouter.post('/cart', async (req, res) => {
         if(!findproduct){
             return res.status(400).json({ message: 'Product is not valid' })
         }
-        const cardproductid = await userModel.cart.findIndex((i)=>{
-            return i.productid;
+        const cardproductid = await findemail.cart.findIndex((i)=>{
+            return i.productid===productid;
         })
+        if(cartproductid>-1){
+            findemail.cart[cartproductid].quantity+=quantity
+        }else{
+           findemail.cart.push({productid,productname,quantity}) 
+        }
 
 
-        // ...additional logic...
+       
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Internal Server Error" });
