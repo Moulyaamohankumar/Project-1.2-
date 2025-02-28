@@ -95,3 +95,81 @@ For this milestone I mostly worked on the frontend of the project. I created a n
 ## Milestone 10
 
 In this milestone I created a schema for products. I made this using a new js file in the Model folder named Productmodel.js. In this I used mongoose to make the schema. I also created a new file called Products.js when I have all the program for initiating a post request that will store all the data in the database. I also used the middleware Multer to process and use the image files that would be uploaded of the product.I have made the neccessary changes to the middleware folder and Index.js to work as intended.
+
+# Milestone 19: Cart Functionality Enhancement
+
+## Overview
+In this milestone, we implemented a **Cart Page** and backend functionality to handle product quantity adjustments. The goal was to allow users to increase or decrease the quantity of products in their cart dynamically, ensuring seamless interaction between the frontend and backend.
+
+---
+
+## Features Implemented
+### Frontend Tasks ✅
+- **Created a Cart Page** that displays all the products currently added to the cart.
+- **Added `+` and `-` buttons** to modify product quantities.
+- **Real-time UI Updates**: The page updates dynamically when product quantities change.
+
+### Backend Tasks ✅
+- **Implemented API Endpoints**:
+  - `POST /cart/increase/:productId` → Increases the quantity of the specified product.
+  - `POST /cart/decrease/:productId` → Decreases the quantity of the specified product (removes item if quantity reaches 0).
+- **Updated Cart Model** (if required) to support quantity updates.
+- **Validation & Error Handling** to prevent invalid requests and ensure database consistency.
+
+---
+
+## Tech Stack 🛠️
+- **Frontend:** React, Tailwind CSS
+- **Backend:** Node.js, Express, MongoDB, Mongoose
+- **API Testing:** Postman / Thunder Client
+
+---
+
+## Steps Taken 🔧
+1. **Designed the Cart UI** to display products dynamically.
+2. **Added event handlers** for `+` and `-` buttons to call backend APIs.
+3. **Connected API endpoints** to modify the cart data.
+4. **Tested the functionality** to ensure smooth interactions.
+5. **Handled edge cases** such as preventing negative quantities.
+6. **Updated the README** with milestone details.
+
+---
+
+## Next Steps 📌
+- 🔄 **Thoroughly test the cart functionality** in different scenarios.
+- 📜 **Refactor code** for better optimization and maintainability.
+- 🚀 **Push code to GitHub** and submit the milestone assignment.
+
+---
+
+## How to Run the Project ⚙️
+1. **Clone the Repository:**
+   ```bash
+   git clone <your-repository-url>
+   cd <your-project-folder>
+   ```
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Start Backend Server:**
+   ```bash
+   npm run server
+   ```
+4. **Start Frontend:**
+   ```bash
+   npm start
+   ```
+5. **Test API Endpoints** using Postman or Thunder Client.
+
+---
+
+## Submission Details 📥
+- GitHub Repository: [Your Repository Link Here]
+- Submitted for **Milestone 19**
+- Duration: **1 hour**
+
+---
+
+### 🚀 Successfully completed Milestone 19! On to the next challenge! 🎯
+
