@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
+import CartProduct from './CartProduct'; // Ensure you have this component
 
 const Cart = () => {
-
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("")
+        fetch('http://localhost:5000/product/getCart') // Add the correct URL
           .then((res) => {
             if (!res.ok) {
-              console.log("error in cart page")
+              console.log("error in cart page");
             }
             return res.json();
           })
@@ -17,7 +17,7 @@ const Cart = () => {
             console.log("Products fetched:", data.cart);
           })
           .catch((err) => {
-            console.error(" Error fetching products:", err);
+            console.error("Error fetching products:", err);
           });
       }, []);
     
@@ -27,7 +27,7 @@ const Cart = () => {
         <div className='w-full h-screen'>
             <div className='w-full h-full justify-center items-center flex'>
                 <div className='w-full md:w-4/5 lg:w-4/6 2xl:w-2/3 h-full border-l border-r border-neutral-300 flex flex-col'>
-                    <div className='w-full h-16  flex items-center justify-center'>
+                    <div className='w-full h-16 flex items-center justify-center'>
                         <h1 className='text-2xl font-semibold'>Cart</h1>
                     </div>
                     <div className='w-full flex-grow overflow-auto px-3 py-2 gap-y-2'>
@@ -42,4 +42,5 @@ const Cart = () => {
         </div>
     );
 }
+
 export default Cart;
