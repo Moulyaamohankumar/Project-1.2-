@@ -15,8 +15,7 @@ export const Signup = () => {
     const [visible, setVisible] = useState(false)
 
     const handleFileSubmit = (e) => {
-        const file = e.target.files
-
+        const file = e.target.files[0]
         if(file) {
             const filepath = URL.createObjectURL(file)
             console.log(filepath)
