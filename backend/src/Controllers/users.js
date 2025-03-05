@@ -36,6 +36,8 @@ userrouter.post("/create-user",upload.single('file'),async(req,res)=>{
 });
 
 
+
+
 userrouter.post("/login",async(req,res)=>{
     const {email, password} = req.body;
     const check= await userModel.findOne({email:email});
@@ -55,6 +57,8 @@ userrouter.post("/login",async(req,res)=>{
                 if(err){
                     return res.status(400).json({message:"Invalid jwt"});
                 }
+                res.setHeader('Authorization', `Bearer ${token}`); 
+                
 
                 console.log(token);
                 res.status(200).json({token:token});    
