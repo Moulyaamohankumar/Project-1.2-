@@ -133,3 +133,14 @@ In this Milestone I made the Address.jsx which consists of a form component wher
 ## Milestone 22
 
 In this milestone I created an enpoint to recieve the data of the address from the frontend. I also used JWT to authenticate the process.
+
+## Milestone 23
+In this milestone I made an  my create a select address page in frontend and we will write product schema for the orders in the backend
+
+## Milestone 24
+In this milestone i created an order conformation page in frontend where will  display products ordering and address selected and total price details.
+
+## Milestone 25
+
+
+
