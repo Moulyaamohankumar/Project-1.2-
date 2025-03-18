@@ -2,6 +2,7 @@ const {Router}=require('express');
 const auth = require('../Middleware/auth');
 const user=require("../model/userModel");
 const orders = require('../Model/OrderSchema');
+const OrderModel = require('../Model/orderPlacementModel');
 const orderrouter=Router()
 
 orderrouter.post('/place',auth,async(req,res)=>{
@@ -51,6 +52,25 @@ orderrouter.post('/place',auth,async(req,res)=>{
     }
 })
 
+orderrouter.put('/cancel/:orderId',auth,async(res,req)=>{
+    try{
+        const{orderId} = req.params;
+        const orderFind = await OrderModel.findById({orderId})
+    if(!orderFind){
+        res.status(400).json({message:'order ID not found'})
+    }
+    if(orderFind.status == "Shipped" || orderFind.status == "Delievered"){
+        res.status(400).json({message:'Order cannot be cancelled'})
+    }
+orderFind.status == "Cancelled"
+await orderFind.save();
+res.status(200).json({message:'Order is cancelled'})
+    }catch(err){
+    res.status(500).json({message:'Internal Server Error'})
+    }
+
+})
+
 
 
 orderrouter.get("/getorder",auth,async(req,res)=>{
@@ -67,6 +87,10 @@ orderrouter.get("/getorder",auth,async(req,res)=>{
     catch(err){
         console.log(err)
     }
+})
+
+orderrouter.put('/cancel/:orderId',async(res,req)=>{
+
 })
 
 
