@@ -166,9 +166,20 @@ We will send user mail in to endpoint to get all the user orders
 Display all the user orders
 We will add my-orders page in navbar for better navigation.
 
-
 ## Milestone 28
-In this milestone, we implemented an order cancellation feature in the My Orders page. Users can now cancel their orders unless they have already been shipped or delivered. A Cancel Order button is added for each order, which is hidden if the order is already canceled. A backend endpoint has been created to handle order cancellations by receiving the order ID, retrieving the order, updating its status to "Canceled," and saving the changes. This milestone enhances the user experience by allowing flexibility in managing placed orders
 
-## Milestone 29 
-In this milestone, you'll focus on integrating PayPal payments into your project. First, create a PayPal Developer account and access the sandbox environment to set up a test account. Copy and save the UserID and Client ID for authentication. Next, modify your order confirmation page to include two payment options: Cash on Delivery (COD) and Online Payment. Implement radio buttons that allow users to choose their preferred payment method. When the Online Payment option is selected, the PayPal button should dynamically appear. This prepares your system for the next milestone, where you will write code to integrate and process PayPal payments. Using PayPal's API will help ensure secure transactions and a seamless checkout experience for users. This milestone is crucial for understanding payment gateway integration, enhancing your project's functionality, and offering customers multiple payment choices
+In my-orders page for every order add cancel order button has been added.
+If the order is already canceled this button will not be displayed
+I have created an endpoint that will receive the order-id
+Get the order using this id and mark the status canceled and save
+
+## Milestone 29
+In this Milestone we created an account in paypal and got the Client ID. We also looked at NPM documentation for react-paypal-js and used it to make the paypal button and integrate the frontend logic for the payment page.
+here are the steps I followed:
+Please create an PayPal account first PayPal developer dashboard
+Once you login you can see an option for an sandbox accounts.
+Copy the UserID of that account and save it.
+In this sandbox accounts you can find your client id copy and save it.
+In your order conformation page you need two options for payment one is COD and another is online payment.
+Create radio buttons to select COD or online payment and when we click on online payment PayPal buttons need to be displayed.
+In next milestone we will write an code to display and use those PayPal online Payments buttons.

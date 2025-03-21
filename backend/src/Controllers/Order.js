@@ -2,7 +2,7 @@ const {Router}=require('express');
 const auth = require('../Middleware/auth');
 const user=require("../model/userModel");
 const orders = require('../Model/OrderSchema');
-const OrderModel = require('../Model/orderPlacementModel');
+const rolemiddleware = require('../Middleware/role');
 const orderrouter=Router()
 
 orderrouter.post('/place',auth,async(req,res)=>{
@@ -11,6 +11,7 @@ orderrouter.post('/place',auth,async(req,res)=>{
         const email=req.user
         const {  orderItems, shippingAddress } = req.body;
 
+        // Validate request data
         if (!email) {
             return res.status(400).json({ message: 'Email is required.' });
         }
@@ -21,18 +22,18 @@ orderrouter.post('/place',auth,async(req,res)=>{
             return res.status(400).json({ message: 'Shipping address is required.' });
         }
 
-       
+        // Retrieve user _id from the user collection using the provided email
         const user = await user.findOne({ email });
         if (!user) {
             return res.status(404).json({ message: 'User not found.' });
         }
 
-        
+        // Create separate orders for each order item
         const orderPromises = orderItems.map(async (item) => {
             const totalAmount = item.price * item.quantity;
             const order = new orders ({
                 user: user._id,
-                orderItems: [item], 
+                orderItems: [item], // Each order contains a single item
                 shippingAddress,
                 totalAmount,
             });
@@ -50,25 +51,6 @@ orderrouter.post('/place',auth,async(req,res)=>{
         console.error('Error placing orders:', error);
         res.status(500).json({ message: error.message });
     }
-})
-
-orderrouter.put('/cancel/:orderId',auth,async(res,req)=>{
-    try{
-        const{orderId} = req.params;
-        const orderFind = await OrderModel.findById({orderId})
-    if(!orderFind){
-        res.status(400).json({message:'order ID not found'})
-    }
-    if(orderFind.status == "Shipped" || orderFind.status == "Delievered"){
-        res.status(400).json({message:'Order cannot be cancelled'})
-    }
-orderFind.status == "Cancelled"
-await orderFind.save();
-res.status(200).json({message:'Order is cancelled'})
-    }catch(err){
-    res.status(500).json({message:'Internal Server Error'})
-    }
-
 })
 
 
@@ -89,9 +71,33 @@ orderrouter.get("/getorder",auth,async(req,res)=>{
     }
 })
 
-orderrouter.put('/cancel/:orderId',async(res,req)=>{
 
-})
+orderrouter.patch('/cancel-order/:orderId',auth,rolemiddleware(['user']), async (req, res) => {
+    try {
+        const { orderId } = req.params;
+       
+        // Find the order by ID
+        const order = await orders.findById(orderId);
+        console.log(order);
+        if (!order) {
+            return res.status(404).json({ message: 'Order not found.' });
+        }
+
+        // Update order status to 'cancelled'
+        if(order.orderStatus==['Delivered']){
+            res.status(404).json({ message: 'Order is already delivered'});
+        }
+
+        order.orderStatus = ['Cancelled'];
+        await order.save();
+
+        res.status(200).json({ message: 'Order cancelled successfully.', order });
+    } catch (error) {
+        console.error('Error cancelling order:', error);
+        res.status(500).json({ message: error.message });
+    }
+});
+
 
 
 
