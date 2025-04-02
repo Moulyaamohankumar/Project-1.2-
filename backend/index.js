@@ -4,12 +4,10 @@ const cors=require('cors')
 const userrouter = require('./src/Controllers/users');
 const productrouter = require('./src/Controllers/products');
 const orderrouter = require('./src/Controllers/Order');
-const cookieParser = require('cookie-parser')
 const app = express();
-
+const cookieparser = require('cookie-parser')
 app.use(express.json());
 app.use(cors())
-app.use(cookieParser())
 
 require('dotenv').config({
     path: './src/config/.env'
@@ -28,7 +26,6 @@ app.use('/product', productrouter);
 
 
 
-
 app.listen(PORT, async () => {
     try {
         await connectDB(url);
@@ -37,4 +34,3 @@ app.listen(PORT, async () => {
         console.log(err);
     }
 });
-
